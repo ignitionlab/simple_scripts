@@ -5,7 +5,7 @@ cd /root/Documents/malsamples/urlhaus
 wget -O samples.txt https://urlhaus.abuse.ch/downloads/text_online/
 sleep 1.5 
 echo "Parsing the download to show only .co.uk domains:"
-grep "co.uk" samples.txt >> uk_$(date +%d-%m-%Y).txt 
+grep "co.uk" samples.txt > uk_$(date +%d-%m-%Y).txt 
 sleep 1.5
 echo "Removing the original download"
 rm samples.txt
