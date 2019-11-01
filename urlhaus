@@ -1,7 +1,12 @@
 #!/bin/bash
 echo "Downloading the latest live URLS from URLHaus" 
+sleep 1.5
 cd /root/Documents/malsamples/urlhaus
 wget -O samples.txt https://urlhaus.abuse.ch/downloads/text_online/
-grep "co.uk" samples.txt >> uk_$(date +%F).txt 
+sleep 1.5 
+echo "Parsing the download to show only .co.uk domains:"
+grep "co.uk" samples.txt >> uk_$(date +%d-%m-%Y).txt 
+sleep 1.5
+echo "Removing the original download"
 rm samples.txt
-
+echo "Job Done!!!"
