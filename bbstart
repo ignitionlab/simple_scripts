@@ -1,0 +1,17 @@
+#!/bin/bash
+echo -n "Enter the name of your Bug Bounty Target: "
+read bbt
+
+# Create the main folder name
+foldername="$bbt"
+
+echo "[*] Creating folder: " $foldername
+
+if [ ! -d ./$foldername ]; then
+  mkdir -p ./$foldername;
+  mkdir -p ./$foldername/recon
+  mkdir -p ./$foldername/nmap
+  mkdir -p ./$foldername/targets
+  mkdir -p ./$foldername/other
+  echo "[*] Created " $foldername
+fi
