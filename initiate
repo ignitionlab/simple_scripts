@@ -1,0 +1,26 @@
+#!/bin/bash
+echo -n "Enter the Project ID: "
+read pid
+echo -n "Enter the customer name: "
+read cn
+
+# Replace spaces with underscores
+cn_dashes="${cn// /_}"
+# get the folder name
+foldername="$pid"_"$cn_dashes"
+echo "=========================================================="
+echo "[*] Great going to make this folder for you: " $foldername
+
+if [ ! -d ./$foldername ]; then
+  mkdir -p ./$foldername;
+  mkdir -p ./$foldername/Testing
+  mkdir -p ./$foldername/Testing/Burp
+  mkdir -p ./$foldername/Testing/Nessus
+  mkdir -p ./$foldername/Testing/Nmap
+  mkdir -p ./$foldername/Testing/SSL
+  echo "[*] Created " $foldername
+  ls -laR ./$foldername
+fi
+
+echo "=========================================================="
+echo "Check for errors there, it won't have done anything if the folder already existed"
