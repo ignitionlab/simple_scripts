@@ -1,0 +1,22 @@
+_block:nmap_
+mkdir -p ./nmap
+nmap -p- -sC -sV -Pn _target_ -oA ./nmap/_target_
+_block:nmap_
+
+_block:nmapudp1k_
+nmap --top-ports 1000 -sU _target_ -oA ./nmap/_target__udp_top_1k
+_block:nmapudp1k_
+
+_block:ssl_
+mkdir -p ./ssl
+sslscan _target_ | tee ./ssl/_target__sslscan.txt
+_block:ssl_
+
+_block:testssl_
+/home/chrisy/tools/testssl.sh/testssl.sh _target_ | tee ./ssl/_target__testssl.txt
+_block:testssl_
+
+_block:whois_
+mkdir -p ./whois
+whois _target_ | tee ./whois/_target__whois.txt
+_block:whois_
