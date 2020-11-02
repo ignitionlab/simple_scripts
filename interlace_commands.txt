@@ -4,7 +4,7 @@ nmap -p- -sC -sV -Pn _target_ -oA ./nmap/_target_
 _block:nmap_
 
 _block:nmapudp1k_
-nmap --top-ports 1000 -sU _target_ -oA ./nmap/_target__udp_top_1k
+sudo nmap --top-ports 1000 -sU _target_ -oA ./nmap/_target__udp_top_1k
 _block:nmapudp1k_
 
 _block:ssl_
